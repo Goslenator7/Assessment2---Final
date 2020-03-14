@@ -15,6 +15,8 @@ namespace Assessment2___Final.Controllers
         }
 
         // Link to Start a cause page
+        //Must be logged into an account to view
+        [Authorize]
         public ActionResult StartAPetition()
         {
             return View();
@@ -32,15 +34,6 @@ namespace Assessment2___Final.Controllers
             return View();
         }
 
-        /*
-        // Link to Sign Up Page
-        public IActionResult SignUp()
-        {
-
-            ViewBag.Message = "User Sign Up";
-
-            return View();
-        }
 
         /* If Sign up form data is valid, send data through post and display Homepage.
          * If not, return the user to the Sign Up page 

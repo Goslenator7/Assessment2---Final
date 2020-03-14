@@ -56,6 +56,11 @@ h1 {
     color: #191ba9;
 }
 
+#logOff {
+    padding-right: 2px;
+    color: #191ba9;
+}
+
 #logInForm .error {
     color: red;
 }
