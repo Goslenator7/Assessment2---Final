@@ -54,8 +54,8 @@ namespace Assessment2___Final
             manager.PasswordValidator = new PasswordValidator
             {
                 RequiredLength = 6,
-                RequireNonLetterOrDigit = true,
-                RequireDigit = false,
+                RequireNonLetterOrDigit = false,
+                RequireDigit = true,
                 RequireLowercase = true,
                 RequireUppercase = true,
             };
