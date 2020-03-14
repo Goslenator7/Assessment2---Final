@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+
+
+    <!-- jQuery & popper.js -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+    <!-- jQuery validate plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+
+    <!-- Bootstrap stylesheet -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- Bootstrap js -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- Import font awesome icons -->
+    <script src="https://use.fontawesome.com/6f1ccd835a.js"></script>
+
+    <!-- Import Social media Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Import Font -->
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet">
+
+    <!-- Default VS css -->
+    <link rel="stylesheet" href="~/Content/site.css" />
+
+    <!-- My Custom css -->
+    <link rel="stylesheet" href="~/Content/myStyle.css">
+
+
+</head>
+<body>
+
+    <!--  Log in form within modal -->
+    <!-- (Hidden to user until log in button is clicked) -->
+    <div class="container">
+        <div class="modal hide" id="logInModal" data-backdrop="static" tabindex="-1">
+            <div class="modal-dialogue mw-100 w-75" role="document">
+                <div class="modal-content">
+                    <!-- Modal header & close symbol -->
+                    <div class="modal-header text-center">
+                        <h2> Please enter your login details below:</h2>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
+                    </div>
+                    <!-- Log in form -->
+                    <div class="modal-body">
+                        <form role="form" id="logInForm" method="post">
+                            <div class="form-group">
+                                <label for="username" class="labelDecor">Username: </label>
+                                <input type="text" class="form-control" id="logInUsername" name="logInUsername" placeholder="Username" />
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="labelDecor">Password: </label>
+                                <input type="password" class="form-control" id="logInPassword" name="logInPassword" placeholder="Password" />
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--  Sign up form within modal -->
+    <!-- (Hidden to user until sign up button is clicked) -->
+    <div class="container">
+        <div class="modal hide" id="signUpModal" data-backdrop="static" tabindex="-1">
+            <div class="modal-dialogue mw-100 w-75" role="document">
+                <div class="modal-content">
+                    <!-- Modal header & close symbol -->
+                    <div class="modal-header text-center">
+                        <h2> Please enter your details below:</h2>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
+                    </div>
+                    <!-- Sign Up form -->
+                    <div class="modal-body">
+                        <form role="form" id="signUpForm" method="post">
+                            <div class="form-group">
+                                <label for="email" class="labelDecor">Email: </label>
+                                <input type="email" class="form-control" id="signUpEmail" name="signUpEmail" placeholder="Email Address" />
+                            </div>
+                            <div class="form-group">
+                                <label for="username" class="labelDecor">Username: </label>
+                                <input type="text" class="form-control" id="signUpUsername" name="signUpUsername" placeholder="Username (Displays as your digital signature)" />
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="labelDecor">Password: </label>
+                                <input type="password" class="form-control" id="signUpPassword" name="signUpPassword" placeholder="Password" />
+                            </div>
+                            <div class="form-group">
+                                <label for="password2" class="labelDecor">Re-enter Password: </label>
+                                <input type="password" class="form-control" id="signUpPassword2" name="signUpPassword2" placeholder="Re-type Password" />
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Nav Bar -->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+
+        <!-- Website Logo -->
+        <a class="navbar-brand" href="@Url.Action("Index","Home")">
+            <img src="~/Content/images/logo.png" width="120" height="120">
+        </a>
+
+        <!-- Hamburger toggle icon for navbar on collapse -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavCollapse" aria-controls="mainNavCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Nav items -->
+        <div class="collapse navbar-collapse" id="mainNavCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    @Html.ActionLink("Start a Cause ", "StartAPetition", "Home", null, new { @class = "nav-link" })
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink("Featured Causes ", "FeaturedCauses", "Home", null, new { @class = "nav-link" })
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink("Categories ", "Categories", "Home", null, new { @class = "nav-link" })
+                </li>
+                <!--
+                <li class="nav-item">
+                    @Html.ActionLink("Sign Up ", "SignUp", "Home", null, new { @class = "nav-link" })
+                </li> -->
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    @Html.Partial("_LoginPartial", new { @class = "nav-link" })
+                </li>
+            </ul>
+            <!-- 
+            <!-- Log in and Sign up buttons pushed to the right by mr-auto tag in above ul class
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <!-- Button to activate log in form through modal
+                    <button type="submit" class="nav-link btn btn-outline-primary" id="logInButton" data-toggle="modal" data-target="#logInModal"><img src="~/Content/images/icons/person-fill.svg" /> Log In </button>
+                </li>
+                <li class="nav-item">
+                    <!-- Button to activate sign up form through modal
+                    <button type="submit" class="nav-link btn btn-outline-info" id="signUpButton" href="#" data-toggle="modal" data-target="#signUpModal"><img src="~/Content/images/icons/pen.svg" /> Sign Up </button>
+                </li>
+            </ul> -->
+        </div>
+    </nav>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2020 - ClickPoll - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/Scripts/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

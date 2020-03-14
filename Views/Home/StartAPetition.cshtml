@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewData["Title"] = "Start a Cause";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <h1> Start a Cause </h1>
+    <hr />
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <img src="~/Content/images/create.jpg" class="img-fluid" id="createImage" />
+            </div>
+            <!-- Form for creating a cause (petition) -->
+            <!-- If users later wish to upload a picture for their cause, it will need to be of specific dimensions-->
+            <!-- Otherwise divs will be differing heights -->
+            <div class="col-lg-6">
+                <form role="form" id="createPetition">
+                    <!-- method="post"-->
+                    <div class="form-group">
+                        <label for="petitionName" class="labelDecor">Enter a name for your cause: </label>
+                        <input type="text" class="form-control" id="petitionName" name="petitionName" placeholder="Cause Name " />
+                    </div>
+                    <!-- Select category for petition (This will help with categorization later) -->
+                    <div class="form-group">
+                        <label for="petitionCategory" class="labelDecor"> Cause category: </label>
+                        <select id="petitionType" name="petitionType" class="form-control" required>
+                            <option selected> Choose... </option>
+                            <option> Environment </option>
+                            <option> Humanitarian </option>
+                            <option> Politics </option>
+                            <option> Technology </option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="petitionDescription" class="labelDecor"> Enter a description for your cause: </label>
+                        <textarea class="form-control" id="petitionDescription" name="petitionDescription" rows="5"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary"> Submit </button>
+                    <button type="button" class="btn btn-danger"> Cancel </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="userCause">
+        <hr />
+        <h1> Your Cause </h1>
+        <div class="causeContainer">
+            <div class="causeText" id="userCauseText">
+                <h1 class="causeTitle" id="userCauseTitle"></h1>
+                <p class="causeCategory" id="userCauseCategory"></p>
+                <p class="causeDescription" id="userCauseDescription"></p>
+            </div>
+            <div class="signatureCounter">
+                <p class="signatures"> Signatures: You have signed </p>
+                <p class="signatures"> Sign Count: </p>
+                <p class="socialLinks">
+                    <a href="#" class="fa fa-facebook"></a>
+                    <a href="#" class="fa fa-twitter"></a>
+                    <a href="#" class="fa fa-instagram"></a>
+                    <a href="#" class="fa fa-reddit"></a>
+                    <a href="#" class="fa fa-tumblr"></a>
+                </p>
+            </div>
+        </div>
+    </div>
+

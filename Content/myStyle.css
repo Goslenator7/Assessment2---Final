@@ -1,0 +1,179 @@
+﻿/* Shared Layout Page */
+
+* {
+    font-family: 'Titillium Web';
+}
+
+h1 {
+    color: #191ba9;
+    text-align: center;
+}
+
+.colorHeading {
+    color: #191ba9;
+}
+
+#carousel-example-generic {
+    margin-top: 150px;
+}
+
+/*
+#logInButton {
+    margin-top: 2px;
+    margin-right: 4px;
+    margin-bottom: 2px;
+    padding-right: 5px;
+}
+
+#signUpButton {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    padding-right: 5px;
+}
+
+#logInModal {
+    margin-top: 5%;
+    margin-left: 12%;
+    margin-right: 15%;
+}
+
+#signUpModal {
+    margin-top: 5%;
+    margin-left: 12%;
+    margin-right: 15%;
+}
+*/
+
+.carousel-caption {
+    color: rgb(255, 255, 255);
+    background: rgba(150, 150, 150, 0.40);
+    border-radius: 25px;
+    font-weight: bold;
+}
+
+.nav-link {
+    padding-right: 2px;
+}
+
+#logInForm .error {
+    color: red;
+}
+
+#signUpForm .error {
+    color: red;
+}
+
+
+/* Social Links Styling */
+
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 70px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+    border-radius: 50%;
+}
+
+    .fa:hover {
+        opacity: 0.7;
+    }
+
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+    margin-left: 10%;
+}
+
+.fa-twitter {
+    background: #55ACEE;
+    color: white;
+}
+
+.fa-instagram {
+    background: #125688;
+    color: white;
+}
+
+.fa-reddit {
+    background: #ff5700;
+    color: white;
+}
+
+.fa-tumblr {
+    background: #2c4762;
+    color: white;
+}
+
+/* Start a cause page */
+
+#userCause {
+    display: none;
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#createPetition {
+    margin-top: 40px;
+}
+
+#createImage {
+    margin-top: 80px;
+}
+
+#createPetition .error {
+    color: red;
+}
+
+.signatures {
+    text-align: center;
+    font-weight: bold;
+    padding-top: 5px;
+}
+
+.labelDecor {
+    color: #191ba9;
+}
+
+/*Featured Cause Page */
+
+.causeContainer {
+    border: solid 2px;
+    border-color: #191ba9;
+    margin-bottom: 20px;
+}
+
+.causeImage > img {
+    max-width: 100%;
+    height: auto;
+    padding: 2px;
+}
+
+.causeText {
+    border: solid 2px;
+    border-color: grey;
+    text-align: center;
+}
+
+.signatureCounter {
+    border: solid 2px;
+    border-color: red;
+}
+
+
+/* Categories */
+
+.catHead {
+    color: #191ba9;
+    margin-top: 20px;
+}
+
+.causeContainer {
+    margin-top: 20px;
+}
+
+
+
+
