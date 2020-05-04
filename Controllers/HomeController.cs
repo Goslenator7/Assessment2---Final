@@ -28,11 +28,11 @@ namespace Assessment2___Final.Controllers
             return View();
         }
 
-        /* Link to Featured Causes page
-        //public ActionResult FeaturedCauses()
+         //Link to Featured Causes page
+         public ActionResult FeaturedCauses()
         {   //Not Currently working, need to add causes to be able to iterate through the list of them 
-            CauseDB db = new CauseDB();
-            return View(db.Cause.ToList());
+            ClickPollDB db = new ClickPollDB();
+            return View(db.Causes.ToList());
         }
 
       

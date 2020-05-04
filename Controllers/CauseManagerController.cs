@@ -6,14 +6,13 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using Assessment2___Final.Data;
 using Assessment2___Final.Models;
 
 namespace Assessment2___Final.Controllers
 {
     public class CauseManagerController : Controller
     {
-        private Assessment2___FinalDBContext db = new Assessment2___FinalDBContext();
+        private ClickPollDB db = new ClickPollDB();
 
         // GET: CauseManager
         public ActionResult Index()

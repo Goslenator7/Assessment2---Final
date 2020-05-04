@@ -1,8 +1,10 @@
-﻿using System;
+﻿/*using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
+using Assessment2___Final.Models;
+
 
 namespace Assessment2___Final.Data
 {
@@ -19,11 +21,29 @@ namespace Assessment2___Final.Data
 
         public Assessment2___FinalDBContext() : base("name=Assessment2___FinalDBContext")
         {
+            // Call Initializer to seed database
+            //Database.SetInitializer<Assessment2___FinalDBContext>(new Assessment2___FinalDBInitializer<Assessment2___FinalDBContext>());
         }
         public DbSet<Models.Cause> Causes { get; set; }
         public DbSet<Models.User> Users { get; set; }
 
-        public DbSet<Models.Signature> Signatures { get; set; }
+        public DbSet<Models.Signature> Signatures { get; set; } 
 
+        //Creating DB Initializer for seed
+        private class Assessment2___FinalInitializer<T> : DropCreateDatabaseIfModelChanges<Assessment2___FinalDBContext>
+        {
+            protected override void Seed(Assessment2___FinalDBContext context)
+            {
+                context.Causes.Add(new Cause
+                {
+                    Title = "Stop Politics!",
+                    Category = "Politics",
+                    Description = "Politics must be stopped! It's too political!"
+                });
+
+
+                base.Seed(context);
+            }
+        }
     }
-}
+}*/
