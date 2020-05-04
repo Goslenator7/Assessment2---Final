@@ -62,13 +62,14 @@ $("document").ready(function () {
     });
 });
 
+// Removed from part 1, will use MVC create petitions
 // Function to insert above values into waiting div (User generated cause)
-$("#createPetition").submit(function (e) {
+/*$("#createPetition").submit(function (e) {
     e.preventDefault();
     let petitionName = $("#petitionName").val();
     let petitionType = $("#petitionType").val();
     let petitionDescription = $("#petitionDescription").val();
     $("#userCauseText").append("<h1>" + petitionName + "</h1><p>" + petitionType + "</p><p>" + petitionDescription + "</p>");
     $("#userCause").show(2000);
-});
+});*/
 

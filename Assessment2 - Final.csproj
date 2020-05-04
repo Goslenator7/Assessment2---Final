@@ -588,6 +588,11 @@
     <Content Include="Views\Home\Privacy.cshtml" />
     <Content Include="Views\Home\StartAPetition.cshtml" />
     <Content Include="Views\Shared\_ValidationScriptsPartial.cshtml" />
+    <Content Include="Views\CauseManager\Create.cshtml" />
+    <Content Include="Views\CauseManager\Delete.cshtml" />
+    <Content Include="Views\CauseManager\Details.cshtml" />
+    <Content Include="Views\CauseManager\Edit.cshtml" />
+    <Content Include="Views\CauseManager\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

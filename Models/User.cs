@@ -7,12 +7,15 @@ namespace Assessment2___Final.Models
 {
     public class User
     {
-        public int UserID { get; set; }
-        public string Username { get; set; }
-        public string Email { get; set; }
+        public virtual int UserID { get; set; }
+        public virtual string Username { get; set; }
+        public virtual string Email { get; set; }
 
-        public string Password { get; set; }
+        public virtual string Password { get; set; }
 
-        public string ConfirmPassword { get; set; }
+        public virtual string ConfirmPassword { get; set; }
+
+        public virtual List<Cause> Cause { get; set; }
+        public virtual List<Signature> Signatures { get; set; }
     }
 }

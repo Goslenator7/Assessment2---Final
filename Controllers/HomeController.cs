@@ -22,19 +22,20 @@ namespace Assessment2___Final.Controllers
             return View();
         }
 
-        // Link to Featured Causes page
-        public ActionResult FeaturedCauses()
-        {
-            return View();
-        }
-
         // Link to Categories page
         public ActionResult Categories()
         {
             return View();
         }
 
+        /* Link to Featured Causes page
+        //public ActionResult FeaturedCauses()
+        {   //Not Currently working, need to add causes to be able to iterate through the list of them 
+            CauseDB db = new CauseDB();
+            return View(db.Cause.ToList());
+        }
 
+      
         /* If Sign up form data is valid, send data through post and display Homepage.
          * If not, return the user to the Sign Up page 
         [HttpPost]
