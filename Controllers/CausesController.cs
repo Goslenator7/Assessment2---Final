@@ -6,22 +6,22 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Assessment2___Final.Data;
 using Assessment2___Final.Models;
 
 namespace Assessment2___Final.Controllers
 {
-    public class CauseManagerController : Controller
+    public class CausesController : Controller
     {
         private ClickPollDB db = new ClickPollDB();
 
-        // GET: CauseManager
+        // GET: Causes
         public ActionResult Index()
         {
-            var causes = db.Causes.Include(c => c.User);
-            return View(causes.ToList());
+            return View(db.Causes.ToList());
         }
 
-        // GET: CauseManager/Details/5
+        // GET: Causes/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,19 +36,19 @@ namespace Assessment2___Final.Controllers
             return View(cause);
         }
 
-        // GET: CauseManager/Create
+        // GET: Causes/Create
+        [Authorize]
         public ActionResult Create()
         {
-            ViewBag.UserID = new SelectList(db.Users, "UserID", "Username");
             return View();
         }
 
-        // POST: CauseManager/Create
+        // POST: Causes/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CauseID,Title,Category,Description,Image,UserID")] Cause cause)
+        public ActionResult Create([Bind(Include = "CauseID,Title,Category,Description,Image,Signed")] Cause cause)
         {
             if (ModelState.IsValid)
             {
@@ -57,11 +57,10 @@ namespace Assessment2___Final.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.UserID = new SelectList(db.Users, "UserID", "Username", cause.UserID);
             return View(cause);
         }
 
-        // GET: CauseManager/Edit/5
+        // GET: Causes/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -73,16 +72,15 @@ namespace Assessment2___Final.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.UserID = new SelectList(db.Users, "UserID", "Username", cause.UserID);
             return View(cause);
         }
 
-        // POST: CauseManager/Edit/5
+        // POST: Causes/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CauseID,Title,Category,Description,Image,UserID")] Cause cause)
+        public ActionResult Edit([Bind(Include = "CauseID,Title,Category,Description,Image,Signed")] Cause cause)
         {
             if (ModelState.IsValid)
             {
@@ -90,11 +88,10 @@ namespace Assessment2___Final.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.UserID = new SelectList(db.Users, "UserID", "Username", cause.UserID);
             return View(cause);
         }
 
-        // GET: CauseManager/Delete/5
+        // GET: Causes/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -109,7 +106,7 @@ namespace Assessment2___Final.Controllers
             return View(cause);
         }
 
-        // POST: CauseManager/Delete/5
+        // POST: Causes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

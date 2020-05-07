@@ -29,10 +29,20 @@ namespace Assessment2___Final.Controllers
         }
 
          //Link to Featured Causes page
-         public ActionResult FeaturedCauses()
-        {   //Not Currently working, need to add causes to be able to iterate through the list of them 
-            ClickPollDB db = new ClickPollDB();
-            return View(db.Causes.ToList());
+         public ActionResult Causes()
+        {   
+            //Not Currently working, need to add causes to be able to iterate through the list of them 
+            //ClickPollDbContext db = new ClickPollDbContext();
+            /*Cause Cause = new Cause
+            {
+                Title = "Stop politics!",
+                Category = "politics",
+                Description = "Politics must be stopped! It's too political!"
+            };
+            db.Causes.Add(Cause);
+            db.SaveChanges();*/
+
+            return View("~/Views/Causes");
         }
 
       

@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using System.Data.Entity;
+using Assessment2___Final.Models;
 
 namespace Assessment2___Final
 {
@@ -12,6 +14,7 @@ namespace Assessment2___Final
     {
         protected void Application_Start()
         {
+            Database.SetInitializer(new ClickPollDbInitializer());
 
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

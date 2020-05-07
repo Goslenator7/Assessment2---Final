@@ -16,18 +16,22 @@ namespace Assessment2___Final.Models
             // Add custom user claims here
             return userIdentity;
         }
+        public string Username { get; set; }
     }
 
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class ClickPollDbContext : IdentityDbContext<ApplicationUser>
     {
-        public ApplicationDbContext()
+        public ClickPollDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
 
-        public static ApplicationDbContext Create()
+        // Added
+        public DbSet<Cause> Causes { get; set; }
+
+        public static ClickPollDbContext Create()
         {
-            return new ApplicationDbContext();
+            return new ClickPollDbContext();
         }
     }
 }

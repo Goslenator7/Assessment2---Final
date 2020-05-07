@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ComponentModel.DataAnnotations;
 
 namespace Assessment2___Final.Models
 {
@@ -10,12 +11,13 @@ namespace Assessment2___Final.Models
         public virtual int CauseID { get; set; }
         public virtual string Title { get; set; }
         public virtual string Category { get; set; }
+
+        [DataType(DataType.MultilineText)]
         public virtual string Description { get; set; }
-        public virtual byte [] Image { get; set; }
+        public virtual string Image { get; set; }
 
-        public virtual int UserID { get; set; }
+        public virtual Nullable <int> Signed { get; set; }
 
-        public virtual User User { get; set; }
-        public virtual List<Signature> Signature { get; set; }
+
     }
 }

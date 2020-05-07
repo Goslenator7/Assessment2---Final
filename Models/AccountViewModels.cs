@@ -48,6 +48,7 @@ namespace Assessment2___Final.Models
 
     public class LoginViewModel
     {
+
         [Required]
         [Display(Name = "Email")]
         [EmailAddress]
@@ -64,6 +65,11 @@ namespace Assessment2___Final.Models
 
     public class RegisterViewModel
     {
+        // I Added
+        [Required]
+        [Display(Name = "Username")]
+        public string Username { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
