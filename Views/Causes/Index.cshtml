@@ -2,6 +2,8 @@
 
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    
 }
 
 <h2>Index</h2>
@@ -29,29 +31,43 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Category)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Image)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Signed)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CauseID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CauseID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CauseID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Image)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Signed)
+            </td>
+            <td>
+                <!-- Only show this option if the user is signed in -->
+                @if (User.Identity.IsAuthenticated)
+                {
+                    @Html.ActionLink("Edit", "Edit", new { id = item.CauseID })
+                }
+
+                @Html.ActionLink("Details", "Details", new { id = item.CauseID })
+
+                <!-- Only display the delete option if the user is signed in and has admin priveleges -->
+                @if (User.Identity.IsAuthenticated)
+                {
+                    if (User.IsInRole("Admin"))
+                    {
+                        @Html.ActionLink("Delete", "Delete", new { id = item.CauseID })
+                    }
+                }
+            </td>
+        </tr>
+    }
 
 </table>

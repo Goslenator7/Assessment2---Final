@@ -66,9 +66,9 @@ namespace Assessment2___Final.Models
     public class RegisterViewModel
     {
         // I Added
-        [Required]
-        [Display(Name = "Username")]
-        public string Username { get; set; }
+        //[Required]
+        //[Display(Name = "Username")]
+        //public string Username { get; set; }
 
         [Required]
         [EmailAddress]

@@ -16,7 +16,7 @@ namespace Assessment2___Final.Models
             // Add custom user claims here
             return userIdentity;
         }
-        public string Username { get; set; }
+  
     }
 
     public class ClickPollDbContext : IdentityDbContext<ApplicationUser>

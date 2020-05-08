@@ -22,6 +22,7 @@ namespace Assessment2___Final.Controllers
         }
 
         // GET: Causes/Details/5
+        [AllowAnonymous]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -61,6 +62,7 @@ namespace Assessment2___Final.Controllers
         }
 
         // GET: Causes/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -92,6 +94,7 @@ namespace Assessment2___Final.Controllers
         }
 
         // GET: Causes/Delete/5
+        [Authorize (Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
