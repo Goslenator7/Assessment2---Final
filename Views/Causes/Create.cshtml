@@ -55,15 +55,11 @@
 
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary"> Submit </button>
-                    <button type="button" class="btn btn-danger"> Cancel </button>
+                    @Html.ActionLink("Cancel", "Index", null, new { @class = "btn btn-danger" })
                 </div>
             </div>
         }
     </div>
-</div>
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
 </div>
 
 @section Scripts {
