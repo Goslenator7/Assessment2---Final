@@ -14,9 +14,7 @@ namespace Assessment2___Final.Models
             Cause Cause1 = new Cause()
             {
                 Title = "Stop politics!",
-                Category = "Politics",
                 Description = "Stop politics! It's too political!",
-                Image = " ",
                 Signed = 0
 
             };

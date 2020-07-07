@@ -51,6 +51,9 @@ namespace Assessment2___Final.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "CauseID,Title,Category,Description,Image,Signed")] Cause cause)
         {
+            // Set signatures on new cause to 0
+            cause.Signed = 0;
+
             if (ModelState.IsValid)
             {
                 db.Causes.Add(cause);

@@ -3,13 +3,14 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    
+
 }
 
 <h2>Featured Causes</h2>
 
 <p>
-    @Html.ActionLink("Start your own Cause", "Create")
+    <br/>
+    @Html.ActionLink("Start your own Cause", "Create", null, new { @class = "btn btn-primary"})
 </p>
 <table class="table">
     <tr>
@@ -17,13 +18,13 @@
             @Html.DisplayNameFor(model => model.Title)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Category)
+            @*@Html.DisplayNameFor(model => model.Category)*@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Description)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Image)
+            @*@Html.DisplayNameFor(model => model.Image)*@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Signed)
@@ -38,13 +39,13 @@
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Category)
+                @*Html.DisplayFor(modelItem => item.Category)*@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Image)
+                @*@Html.DisplayFor(modelItem => item.Image)*@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Signed)

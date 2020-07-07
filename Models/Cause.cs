@@ -10,11 +10,9 @@ namespace Assessment2___Final.Models
     {
         public virtual int CauseID { get; set; }
         public virtual string Title { get; set; }
-        public virtual string Category { get; set; }
 
         [DataType(DataType.MultilineText)]
         public virtual string Description { get; set; }
-        public virtual string Image { get; set; }
 
         public virtual Nullable <int> Signed { get; set; }
 
