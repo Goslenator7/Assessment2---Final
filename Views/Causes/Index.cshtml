@@ -9,9 +9,57 @@
 <h2>Featured Causes</h2>
 
 <p>
-    <br/>
-    @Html.ActionLink("Start your own Cause", "Create", null, new { @class = "btn btn-primary"})
+    <br />
+    @Html.ActionLink("Start your own Cause", "Create", null, new { @class = "btn btn-primary" })
 </p>
+
+<h1>Featured Causes</h1>
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-lg-4">
+                <div class="causeContainer">
+                    <div class="causeImage">
+                        <img src="~/Content/images/hands.jpg" class="img-fluid" />
+                    </div>
+                    <div class="causeText">
+                        <h1 class="causeTitle"> @Html.DisplayFor(modelItem => item.Title) </h1>
+                        <p class="causeDescription">@Html.DisplayFor(modelItem => item.Description)</p>
+                    </div>
+                    <div class="signatureCounter">
+                        <p class="signatures"> Signatures: </p>
+                        <p class="signatures"> Sign Count:  @Html.DisplayFor(modelItem => item.Signed) </p>
+
+                        <!-- Only show this option if the user is signed in -->
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            @Html.ActionLink("Edit", "Edit", new { id = item.CauseID })
+                        }
+
+                        @Html.ActionLink("Details", "Details", new { id = item.CauseID })
+
+                        <!-- Only display the delete option if the user is signed in and has admin priveleges -->
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            if (User.IsInRole("Admin"))
+                            {
+                                @Html.ActionLink("Delete", "Delete", new { id = item.CauseID })
+                            }
+                        }
+
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            @Html.ActionLink("Sign", "Sign", new { id = item.CauseID })
+                        }
+
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
 <table class="table">
     <tr>
         <th>

@@ -65,6 +65,7 @@ namespace Assessment2___Final.Controllers
         }
 
         // GET: Causes/Edit/5
+        // Display only when user is logged in
         [Authorize]
         public ActionResult Edit(int? id)
         {
@@ -81,8 +82,6 @@ namespace Assessment2___Final.Controllers
         }
 
         // POST: Causes/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "CauseID,Title,Category,Description,Image,Signed")] Cause cause)
@@ -97,6 +96,7 @@ namespace Assessment2___Final.Controllers
         }
 
         // GET: Causes/Delete/5
+        // Only display option if admin is logged in (User that is assigned admin role)
         [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
@@ -133,10 +133,15 @@ namespace Assessment2___Final.Controllers
         }
 
         // When User clicks sign, add a signature to cause
+        // Option displayed only when logged in
+        [Authorize]
         public ActionResult Sign (int id)
         {
+            // Find cause in db based on CauseID
             Cause update = db.Causes.ToList().Find(u => u.CauseID == id);
+            // Increment Signatures by 1
             update.Signed += 1;
+            // Save changes in db
             db.SaveChanges();
             return RedirectToAction("Index");
         }
