@@ -41,14 +41,7 @@
     </dl>
 </div>
 <p>
-    <!-- Sign Cause -->
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-        <div class="form-actions">
-            <input type="submit" value="Sign This Cause" class='btn'>
-        </div>
-    }
 
-        @Html.ActionLink("Back to List", "Index")
-    </p>
+
+    @Html.ActionLink("Back to List", "Index")
+</p>

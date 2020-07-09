@@ -67,6 +67,11 @@
                         @Html.ActionLink("Delete", "Delete", new { id = item.CauseID })
                     }
                 }
+
+                @if (User.Identity.IsAuthenticated)
+                {
+                    @Html.ActionLink("Sign", "Sign", new { id = item.CauseID })
+                }
             </td>
         </tr>
     }

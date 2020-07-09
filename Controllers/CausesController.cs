@@ -97,7 +97,7 @@ namespace Assessment2___Final.Controllers
         }
 
         // GET: Causes/Delete/5
-        [Authorize (Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -131,5 +131,15 @@ namespace Assessment2___Final.Controllers
             }
             base.Dispose(disposing);
         }
+
+        // When User clicks sign, add a signature to cause
+        public ActionResult Sign (int id)
+        {
+            Cause update = db.Causes.ToList().Find(u => u.CauseID == id);
+            update.Signed += 1;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+       
     }
 }

@@ -14,7 +14,7 @@ namespace Assessment2___Final.Models
         [DataType(DataType.MultilineText)]
         public virtual string Description { get; set; }
 
-        public virtual Nullable <int> Signed { get; set; }
+        public virtual int Signed { get; set; }
 
 
     }
