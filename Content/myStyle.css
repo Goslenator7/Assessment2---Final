@@ -9,6 +9,19 @@ h1 {
     text-align: center;
 }
 
+.navbar-nav .nav-item .nav-link {
+    color: #191ba9;
+}
+
+.navbar-nav .nav-item:hover .nav-link {
+    color: #5390d9;
+    font-size: 17px;
+}
+
+.navbar-right .nav .nav-link {
+    color: #191ba9;
+}
+
 .colorHeading {
     color: #191ba9;
 }
@@ -57,9 +70,9 @@ h1 {
     margin-top: 40px;
 }
 
-/*#createImage {
+#createImage {
     margin-top: 80px;
-}*/
+}
 
 #createPetition .error {
     color: red;
