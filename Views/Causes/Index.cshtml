@@ -6,22 +6,31 @@
 
 }
 
-<h2>Featured Causes</h2>
-
-<p>
-    <br />
-    @Html.ActionLink("Start your own Cause", "Create", null, new { @class = "btn btn-primary" })
-</p>
-
 <h1>Featured Causes</h1>
+
+<div class="container-fluid">
+   
+</div>
+ 
+<!-- Featured Causes content center start -->
 <div class="container">
+    <div class="row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4">
+            <p class="startYourOwnCause">
+                <br />
+                @Html.ActionLink("Start your own Cause", "Create", null, new { @class = "btn btn-success" })
+            </p>
+        </div>
+        <div class="col-lg-4"></div>
+    </div>
     <div class="row">
         @foreach (var item in Model)
         {
             <div class="col-lg-4">
-                <div class="causeContainer">
+                <div class="causeContainer shadow p-3 mb-5 bg-white rounded">
                     <div class="causeImage">
-                        <img src="~/Content/images/hands.jpg" class="img-fluid" />
+                        <img src="~/Content/images/hands.jpg" class="rounded" />
                     </div>
                     <div class="causeText">
                         <h1 class="causeTitle"> @Html.DisplayFor(modelItem => item.Title) </h1>
@@ -30,29 +39,42 @@
                     <div class="signatureCounter">
                         <p class="signatures"> Signatures: </p>
                         <p class="signatures"> Sign Count:  @Html.DisplayFor(modelItem => item.Signed) </p>
-
+                    </div>
+                    <div class="causeActionSection">
                         <!-- Only show this option if the user is signed in -->
                         @if (User.Identity.IsAuthenticated)
                         {
-                            @Html.ActionLink("Edit", "Edit", new { id = item.CauseID })
+                            @Html.ActionLink("Edit", "Edit", new { id = item.CauseID }, new { @class = "btn btn-outline-warning" })
                         }
 
-                        @Html.ActionLink("Details", "Details", new { id = item.CauseID })
+                        @Html.ActionLink("Details", "Details", new { id = item.CauseID }, new { @class = "btn btn-outline-info" })
 
                         <!-- Only display the delete option if the user is signed in and has admin priveleges -->
                         @if (User.Identity.IsAuthenticated)
                         {
                             if (User.IsInRole("Admin"))
                             {
-                                @Html.ActionLink("Delete", "Delete", new { id = item.CauseID })
+                                @Html.ActionLink("Delete", "Delete", new { id = item.CauseID }, new { @class = "btn btn-outline-danger" })
                             }
                         }
 
                         @if (User.Identity.IsAuthenticated)
                         {
-                            @Html.ActionLink("Sign", "Sign", new { id = item.CauseID })
+                            @Html.ActionLink("Sign", "Sign", new { id = item.CauseID }, new { @class = "btn btn-outline-success" })
                         }
-
+                    </div>
+                    <div class="socialIcons">
+                        <!-- Facebook Share Button -->
+                        <div class="fb-share-button" data-href="https://localhost:44303/Causes/Details/1" data-layout="button_count" data-size="small">
+                            <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Flocalhost%3A44303%2FCauses%2FDetails%2F1&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a>
+                        </div>
+                    </div>
+                    <div class="socialIcons">
+                        <!-- Twitter Share button -->
+                        <a class="twitter-share-button" id="twitterShare"
+                           href="https://twitter.com/intent/tweet">
+                            Tweet
+                        </a>
                     </div>
                 </div>
             </div>
@@ -60,68 +82,4 @@
     </div>
 </div>
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @*@Html.DisplayNameFor(model => model.Category)*@
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @*@Html.DisplayNameFor(model => model.Image)*@
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Signed)
-        </th>
-        <th></th>
-    </tr>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @*Html.DisplayFor(modelItem => item.Category)*@
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @*@Html.DisplayFor(modelItem => item.Image)*@
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Signed)
-            </td>
-            <td>
-                <!-- Only show this option if the user is signed in -->
-                @if (User.Identity.IsAuthenticated)
-                {
-                    @Html.ActionLink("Edit", "Edit", new { id = item.CauseID })
-                }
-
-                @Html.ActionLink("Details", "Details", new { id = item.CauseID })
-
-                <!-- Only display the delete option if the user is signed in and has admin priveleges -->
-                @if (User.Identity.IsAuthenticated)
-                {
-                    if (User.IsInRole("Admin"))
-                    {
-                        @Html.ActionLink("Delete", "Delete", new { id = item.CauseID })
-                    }
-                }
-
-                @if (User.Identity.IsAuthenticated)
-                {
-                    @Html.ActionLink("Sign", "Sign", new { id = item.CauseID })
-                }
-            </td>
-        </tr>
-    }
-
-</table>

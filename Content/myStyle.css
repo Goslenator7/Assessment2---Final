@@ -44,48 +44,6 @@ h1 {
 }
 
 
-/* Social Links Styling */
-
-.fa {
-    padding: 20px;
-    font-size: 30px;
-    width: 70px;
-    text-align: center;
-    text-decoration: none;
-    margin: 5px 2px;
-    border-radius: 50%;
-}
-
-    .fa:hover {
-        opacity: 0.7;
-    }
-
-.fa-facebook {
-    background: #3B5998;
-    color: white;
-    margin-left: 10%;
-}
-
-.fa-twitter {
-    background: #55ACEE;
-    color: white;
-}
-
-.fa-instagram {
-    background: #125688;
-    color: white;
-}
-
-.fa-reddit {
-    background: #ff5700;
-    color: white;
-}
-
-.fa-tumblr {
-    background: #2c4762;
-    color: white;
-}
-
 /* Start a cause page */
 
 #userCause {
@@ -119,9 +77,11 @@ h1 {
 
 /*Featured Cause Page */
 
+.startYourOwnCause {
+    text-align: center;
+}
+
 .causeContainer {
-    border: solid 2px;
-    border-color: #191ba9;
     margin-bottom: 20px;
 }
 
@@ -132,15 +92,50 @@ h1 {
 }
 
 .causeText {
-    border: solid 2px;
-    border-color: grey;
+    text-align: center;
+}
+
+.causeActionSection {
+    margin: 1px;
     text-align: center;
 }
 
 .signatureCounter {
-    border: solid 2px;
-    border-color: red;
+    margin: 1px;
+    border-color: grey;
 }
+
+.socialIcons {
+    margin: 1px;
+    text-align: center;
+}
+
+#twitterShare {
+    margin-top: 5px;
+}
+
+/* Social Links Styling */
+
+.fa {
+    padding: 10px;
+    font-size: 20px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+    border-radius: 50%;
+}
+
+    .fa:hover {
+        opacity: 0.7;
+    }
+
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+}
+
+
 
 
 /* Categories */

@@ -38,6 +38,29 @@
 </head>
 <body>
 
+    <!-- Code for facebook share button -->
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v7.0" nonce="ZW7RkQIl"></script>
+
+    <!-- Code for Tweet button -->
+    <script>
+    window.twttr = (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0],
+                t = window.twttr || {};
+            if (d.getElementById(id)) return t;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "https://platform.twitter.com/widgets.js";
+            fjs.parentNode.insertBefore(js, fjs);
+
+            t._e = [];
+            t.ready = function (f) {
+                t._e.push(f);
+            };
+
+            return t;
+        }(document, "script", "twitter-wjs"));</script>
+
     <!-- Main Nav Bar -->
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
 
@@ -68,7 +91,7 @@
                     @Html.ActionLink("Sign Up ", "SignUp", "Home", null, new { @class = "nav-link" })
                 </li> -->
             </ul>
-                    @Html.Partial("_LoginPartial", new { @class = "nav-link" })
+            @Html.Partial("_LoginPartial", new { @class = "nav-link" })
         </div>
     </nav>
     <div class="container">
