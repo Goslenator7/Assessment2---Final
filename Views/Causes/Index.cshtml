@@ -13,7 +13,7 @@
    
 </div>
  
-<!-- Featured Causes content center start -->
+<!-- Featured Causes content start -->
 <div class="container">
     <div class="row">
         <div class="col-lg-4"></div>
@@ -25,6 +25,7 @@
         </div>
         <div class="col-lg-4"></div>
     </div>
+    <!-- Pull each created cause from the database and display each of them in a div -->
     <div class="row">
         @foreach (var item in Model)
         {
@@ -41,13 +42,20 @@
                         <p class="signatures"> Signatures: </p>
                         <p class="signatures"> Sign Count:  @Html.DisplayFor(modelItem => item.Signed) </p>
                     </div>
+
+                    <!-- Cause options, Edit (Admin), Details, Delete(Admin), Sign -->
+
                     <div class="causeActionSection">
-                        <!-- Only show this option if the user is signed in -->
+                        <!-- Only show this option if the user is signed in and has admin priveleges -->
                         @if (User.Identity.IsAuthenticated)
                         {
-                            @Html.ActionLink("Edit", "Edit", new { id = item.CauseID }, new { @class = "btn btn-outline-warning" })
+                            if (User.IsInRole("Admin"))
+                            {
+                                @Html.ActionLink("Edit", "Edit", new { id = item.CauseID }, new { @class = "btn btn-outline-warning" })
+                            }
                         }
 
+                        <!-- Allow anonymous viewing of cause details -->
                         @Html.ActionLink("Details", "Details", new { id = item.CauseID }, new { @class = "btn btn-outline-info" })
 
                         <!-- Only display the delete option if the user is signed in and has admin priveleges -->
@@ -59,11 +67,14 @@
                             }
                         }
 
+                        <!-- Only show sign option if the user is signed in -->
                         @if (User.Identity.IsAuthenticated)
                         {
                             @Html.ActionLink("Sign", "Sign", new { id = item.CauseID }, new { @class = "btn btn-outline-success" })
                         }
                     </div>
+
+                    <!-- Share buttons for cause -->
                     <div class="socialIcons">
                         <!-- Facebook Share Button -->
                         <div class="fb-share-button" data-href="https://localhost:44303/Causes/Details/1" data-layout="button_count" data-size="small">

@@ -65,8 +65,8 @@ namespace Assessment2___Final.Controllers
         }
 
         // GET: Causes/Edit/5
-        // Display only when user is logged in
-        [Authorize]
+        // Display only when user is logged in as admin
+        [Authorize (Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -96,7 +96,7 @@ namespace Assessment2___Final.Controllers
         }
 
         // GET: Causes/Delete/5
-        // Only display option if admin is logged in (User that is assigned admin role)
+        // Only display option if user is signed in as admin
         [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
@@ -133,7 +133,7 @@ namespace Assessment2___Final.Controllers
         }
 
         // When User clicks sign, add a signature to cause
-        // Option displayed only when logged in
+        // Option displayed only when user is logged in
         [Authorize]
         public ActionResult Sign (int id)
         {
